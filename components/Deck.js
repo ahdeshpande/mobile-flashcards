@@ -25,11 +25,13 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         backgroundColor: white,
+        textAlign: 'center',
     },
     header: {
-        fontSize: 18,
+        fontSize: 42,
     },
     counter: {
+        fontSize: 24,
         color: 'gray',
     }
 });

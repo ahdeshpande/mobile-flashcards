@@ -8,3 +8,4 @@ npm-debug.*
 .watchmanconfig
 babel.config.js
 package-lock.json
+utils/firebase.js

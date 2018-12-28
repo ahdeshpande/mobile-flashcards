@@ -5,9 +5,12 @@ import Deck from "./Deck";
 
 class DeckList extends Component {
 
-    renderItem = ({deck}) => {
+    renderItem = (deck) => {
+        const {deckName, cardCount} = deck.item;
+
         return <Deck
-            {...deck}
+            deckName={deckName}
+            cardCount={cardCount}
         />
     };
 
@@ -19,6 +22,7 @@ class DeckList extends Component {
                 <FlatList
                     data={decks}
                     renderItem={this.renderItem}
+                    keyExtractor={(card) => card._key.toString()}
                 />
             </View>
         )
