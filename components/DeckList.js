@@ -8,10 +8,10 @@ import {handleInitialData} from "../actions";
 class DeckList extends Component {
 
     renderItem = (deck) => {
-        const {deckName, cardCount} = deck.item;
+        const {title, cardCount} = deck.item;
 
         return <Deck
-            deckName={deckName}
+            deckName={title}
             cardCount={cardCount}
         />
     };
@@ -23,14 +23,12 @@ class DeckList extends Component {
     render() {
         const {decks} = this.props;
 
-        console.log(decks)
-
         return (
             <View style={styles.container}>
                 {decks && <FlatList
                     data={decks}
                     renderItem={this.renderItem}
-                    keyExtractor={(card) => card._key.toString()}
+                    keyExtractor={(deck) => deck.id}
                 />}
             </View>
         )
@@ -48,20 +46,18 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(decks) {
 
-    const tempDecks = [];
-
-    // decks.forEach((doc) => {
-    //     console.log(doc.data());
-    //     // tempDecks.push({
-    //     //     key: doc.id,
-    //     //     doc, // DocumentSnapshot
-    //     //     title,
-    //     //     description,
-    //     //     author,
-    //     // });
-    // });
-    console.log(decks)
-    return tempDecks;
+    return {
+        decks: decks
+            ? Object.keys(decks)
+                .map((id) => {
+                    return {
+                        id: id,
+                        title: decks[id].title,
+                        cardCount: decks[id].questions.length,
+                    }
+                })
+            : [],
+    };
 }
 
 export default connect(mapStateToProps)(DeckList);

@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     header: {
-        fontSize: 42,
+        fontSize: 36,
     },
     counter: {
-        fontSize: 24,
+        fontSize: 22,
         color: 'gray',
     }
 });
