@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet, ListView} from 'react-native';
 import {white} from "../utils/colors";
 import Deck from "./Deck";
+import {connect} from "react-redux";
+import {handleInitialData} from "../actions";
 
 class DeckList extends Component {
 
@@ -14,16 +16,22 @@ class DeckList extends Component {
         />
     };
 
+    componentDidMount() {
+        this.props.dispatch(handleInitialData());
+    }
+
     render() {
         const {decks} = this.props;
 
+        console.log(decks)
+
         return (
             <View style={styles.container}>
-                <FlatList
+                {decks && <FlatList
                     data={decks}
                     renderItem={this.renderItem}
                     keyExtractor={(card) => card._key.toString()}
-                />
+                />}
             </View>
         )
     }
@@ -38,4 +46,22 @@ const styles = StyleSheet.create({
     },
 });
 
-export default DeckList;
+function mapStateToProps(decks) {
+
+    const tempDecks = [];
+
+    // decks.forEach((doc) => {
+    //     console.log(doc.data());
+    //     // tempDecks.push({
+    //     //     key: doc.id,
+    //     //     doc, // DocumentSnapshot
+    //     //     title,
+    //     //     description,
+    //     //     author,
+    //     // });
+    // });
+    console.log(decks)
+    return tempDecks;
+}
+
+export default connect(mapStateToProps)(DeckList);
