@@ -5,15 +5,15 @@ import {white} from "../utils/colors";
 class Deck extends Component {
 
     render() {
-        const {deckName, cardCount, id} = this.props;
+        const {deckName, cardCount, deckId, navigation} = this.props;
 
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={() => {
-                    // this.props.navigation.navigate(
-                    //     'EntryDetail',
-                    //     {entryId: key}
-                    // );
+                    navigation.navigate(
+                        'DeckDetail',
+                        {deckId: deckId, deckName: deckName}
+                    );
                 }}>
                     <Text style={styles.header}>
                         {deckName}

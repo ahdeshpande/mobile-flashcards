@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, FlatList, StyleSheet, ListView} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import {white} from "../utils/colors";
 import Deck from "./Deck";
 import {connect} from "react-redux";
@@ -8,11 +8,14 @@ import {handleInitialData} from "../actions";
 class DeckList extends Component {
 
     renderItem = (deck) => {
-        const {title, cardCount} = deck.item;
+        const {title, cardCount, id} = deck.item;
+        const {navigation} = this.props;
 
         return <Deck
+            deckId={id}
             deckName={title}
             cardCount={cardCount}
+            navigation={navigation}
         />
     };
 
@@ -39,12 +42,12 @@ class DeckList extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
+        padding: 10,
         backgroundColor: white,
     },
 });
 
-function mapStateToProps(decks) {
+function mapStateToProps(decks, {navigation}) {
 
     return {
         decks: decks
