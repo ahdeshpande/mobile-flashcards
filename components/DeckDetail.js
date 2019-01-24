@@ -93,12 +93,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         margin: 10,
     },
-    appName: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#fff',
-        textAlign: 'center',
-    }
 });
 
 function mapStateToProps(decks, {navigation}) {

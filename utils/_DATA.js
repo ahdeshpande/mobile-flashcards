@@ -60,6 +60,7 @@ export function _saveDeck({title}) {
 
         const formattedDeck = formatDeck({
             title,
+            question: [],
         });
 
         setTimeout(() => {

@@ -7,23 +7,65 @@ import thunk from 'redux-thunk';
 
 import {
     createAppContainer,
+    createBottomTabNavigator,
     createStackNavigator
 } from 'react-navigation';
 import {adBlue, white} from "./utils/colors";
 import {Constants} from "expo";
 import DeckDetail from "./components/DeckDetail";
 import DeckList from "./components/DeckList";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import AddDeck from "./components/AddDeck";
+
+const Home = createBottomTabNavigator({
+    DeckList: {
+        screen: DeckList,
+        navigationOptions: {
+            tabBarLabel: 'Home',
+            tabBarIcon: (({tintColor}) => <Ionicons name={'ios-home'}
+                                                    size={30}
+                                                    color={tintColor}/>),
+        }
+    },
+    AddDeck: {
+        screen: AddDeck,
+        navigationOptions: {
+            tabBarLabel: 'Add Deck',
+            tabBarIcon: (({tintColor}) => <FontAwesome name={'plus-square'}
+                                                       size={30}
+                                                       color={tintColor}/>),
+        }
+    },
+}, {
+    navigationOptions: {
+        header: null,
+    },
+    tabBarOptions: {
+        activeTintColor: Platform.OS === 'ios' ? adBlue : white,
+        style: {
+            height: 56,
+            backgroundColor: Platform.OS === 'ios' ? white : adBlue,
+            shadowRadius: 6,
+            shadowOpacity: 1,
+            shadowColor: 'rgba(0,0,0,0.24)',
+            shadowOffset: {
+                width: 0,
+                height: 3,
+            },
+        }
+    }
+});
 
 const MainNavigator = createStackNavigator({
     DeckList: {
-        screen: DeckList,
+        screen: Home,
         navigationOptions: {
             headerTintColor: white,
             headerStyle: {
                 backgroundColor: adBlue,
             }
         },
-        title: 'Flashcards',
     },
     DeckDetail: {
         screen: DeckDetail,
@@ -31,7 +73,8 @@ const MainNavigator = createStackNavigator({
             headerTintColor: white,
             headerStyle: {
                 backgroundColor: adBlue,
-            }
+            },
+            headerForceInset: {top: 'never', bottom: 'never'}
         }
     }
 });

@@ -1,4 +1,4 @@
-import {getInitialData} from "../utils/api";
+import {getInitialData, saveDeck} from "../utils/api";
 
 export const RECEIVE_DECKS = 'RECEIVE_DECKS';
 export const ADD_DECK = 'ADD_DECK';
@@ -22,6 +22,15 @@ export function handleInitialData() {
         return getInitialData()
             .then(({decks}) => {
                 dispatch(getDecks(decks));
+            });
+    };
+}
+
+export function handleAddDeck(deckName) {
+    return (dispatch) => {
+        return saveDeck({title: deckName})
+            .then(({deck}) => {
+                dispatch(addDeck(deck));
             });
     };
 }
