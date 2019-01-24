@@ -15,12 +15,14 @@ class Deck extends Component {
                         {deckId: deckId, deckName: deckName}
                     );
                 }}>
-                    <Text style={styles.header}>
-                        {deckName}
-                    </Text>
-                    <Text style={styles.counter}>
-                        {cardCount} card{cardCount !== 1 && 's'}
-                    </Text>
+                    <View style={styles.innerContainer}>
+                        <Text style={styles.header}>
+                            {deckName}
+                        </Text>
+                        <Text style={styles.counter}>
+                            {cardCount} card{cardCount !== 1 && 's'}
+                        </Text>
+                    </View>
                 </TouchableOpacity>
             </View>
         )
@@ -35,6 +37,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderBottomWidth: 1,
         borderBottomColor: '#000',
+        alignItems: 'center',
     },
     header: {
         fontSize: 36,
@@ -42,6 +45,9 @@ const styles = StyleSheet.create({
     counter: {
         fontSize: 22,
         color: 'gray',
+    },
+    innerContainer: {
+        alignItems: 'center',
     }
 });
 
