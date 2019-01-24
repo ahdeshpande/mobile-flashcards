@@ -14,7 +14,7 @@ class DeckDetail extends Component {
     };
 
     render() {
-        const {deck} = this.props;
+        const {deck, navigation} = this.props;
 
         return (
             deck
@@ -30,7 +30,12 @@ class DeckDetail extends Component {
                     </View>
 
                     <View style={styles.innerContainer}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate(
+                                'AddCard',
+                                {deckId: deck.deckId,}
+                            );
+                        }}>
                             <Text style={styles.secondaryButton}>
                                 Add Card
                             </Text>
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
     },
     innerContainer: {
-      alignItems: 'center',
+        alignItems: 'center',
     },
     header: {
         fontSize: 48,

@@ -1,4 +1,4 @@
-import {_getDecks, _saveDeck} from "./_DATA";
+import {_getDecks, _saveDeck, _saveQuestion} from "./_DATA";
 
 export function getInitialData() {
     return Promise.all([
@@ -6,6 +6,11 @@ export function getInitialData() {
     ]).then(([decks]) => ({
         decks,
     }))
+}
+
+
+export function saveQuestion ({deckId, question, answer}) {
+    return _saveQuestion({deckId, question, answer})
 }
 
 export function saveDeck ({title}) {

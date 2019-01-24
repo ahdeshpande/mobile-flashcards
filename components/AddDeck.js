@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 48,
-        fontSize: 24,
+        fontSize: 20,
         borderColor: 'gray',
         borderWidth: 1,
         alignSelf: 'stretch',

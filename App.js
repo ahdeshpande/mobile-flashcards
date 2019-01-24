@@ -17,6 +17,7 @@ import DeckList from "./components/DeckList";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AddDeck from "./components/AddDeck";
+import AddCard from "./components/AddCard";
 
 const Home = createBottomTabNavigator({
     DeckList: {
@@ -76,7 +77,17 @@ const MainNavigator = createStackNavigator({
             },
             headerForceInset: {top: 'never', bottom: 'never'}
         }
-    }
+    },
+    AddCard: {
+        screen: AddCard,
+        navigationOptions: {
+            headerTintColor: white,
+            headerStyle: {
+                backgroundColor: adBlue,
+            },
+            headerForceInset: {top: 'never', bottom: 'never'}
+        }
+    },
 });
 
 const AppContainer = createAppContainer(MainNavigator);
