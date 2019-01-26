@@ -40,6 +40,10 @@ export function handleAddDeck(deckName) {
         return saveDeck({title: deckName})
             .then(({deck}) => {
                 dispatch(addDeck(deck));
+                return getInitialData()
+                    .then(({decks}) => {
+                        dispatch(getDecks(decks));
+                    });
             });
     };
 }
@@ -49,6 +53,10 @@ export function handleAddCard({deckId, question, answer}) {
         return saveQuestion({deckId, question, answer})
             .then(({question, answer}) => {
                 dispatch(addCard({question, answer}));
+                return getInitialData()
+                    .then(({decks}) => {
+                        dispatch(getDecks(decks));
+                    });
             });
     };
 }
