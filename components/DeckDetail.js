@@ -41,6 +41,7 @@ class DeckDetail extends Component {
                             </Text>
                         </TouchableOpacity>
 
+                        {deck.cardCount > 0 &&
                         <TouchableOpacity onPress={() => {
                             navigation.navigate(
                                 'Quiz',
@@ -51,6 +52,7 @@ class DeckDetail extends Component {
                                 Start Quiz
                             </Text>
                         </TouchableOpacity>
+                        }
                     </View>
                 </View>
                 :
