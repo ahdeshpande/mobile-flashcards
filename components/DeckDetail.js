@@ -41,7 +41,12 @@ class DeckDetail extends Component {
                             </Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate(
+                                'Quiz',
+                                {deckId: deck.deckId,}
+                            );
+                        }}>
                             <Text style={styles.primaryButton}>
                                 Start Quiz
                             </Text>

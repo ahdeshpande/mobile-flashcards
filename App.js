@@ -18,6 +18,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AddDeck from "./components/AddDeck";
 import AddCard from "./components/AddCard";
+import Quiz from "./components/Quiz";
+import Score from "./components/Score";
 
 const Home = createBottomTabNavigator({
     DeckList: {
@@ -86,6 +88,26 @@ const MainNavigator = createStackNavigator({
                 backgroundColor: adBlue,
             },
             headerForceInset: {top: 'never', bottom: 'never'}
+        }
+    },
+    Quiz: {
+        screen: Quiz,
+        navigationOptions: {
+            headerTintColor: white,
+            headerStyle: {
+                backgroundColor: adBlue,
+            },
+            headerForceInset: {top: 'never', bottom: 'never'}
+        }
+    },
+    Score: {
+        screen: Score,
+        navigationOptions: {
+            headerTintColor: white,
+            headerStyle: {
+                backgroundColor: adBlue,
+            },
+            headerForceInset: {top: 'never', bottom: 'never'},
         }
     },
 });
