@@ -87,16 +87,6 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: 'gray',
     },
-    primaryButton: {
-        textAlign: 'center',
-        padding: 20,
-        width: 150,
-        borderRadius: 5,
-        backgroundColor: adBlue,
-        color: white,
-        fontSize: 20,
-        margin: 10,
-    },
     secondaryButton: {
         textAlign: 'center',
         padding: 20,

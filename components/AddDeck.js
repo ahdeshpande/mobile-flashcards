@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import {adBlue, white} from "../utils/colors";
 import {handleAddDeck} from "../actions";
-import {NavigationActions} from 'react-navigation';
 import {connect} from "react-redux";
 
 class AddDeck extends Component {
@@ -80,9 +79,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         padding: 20,
-    },
-    innerContainer: {
-        alignItems: 'center',
     },
     header: {
         fontSize: 36,

@@ -79,16 +79,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
     },
-    innerContainer: {
-        alignItems: 'center',
-    },
-    header: {
-        fontSize: 48,
-    },
-    counter: {
-        fontSize: 24,
-        color: 'gray',
-    },
     aButtons: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
@@ -116,7 +106,6 @@ const styles = StyleSheet.create({
         color: white,
         fontSize: 20,
         height: 50,
-        // marginTop: 30,
     },
     secondaryButton: {
         alignSelf: 'center',
@@ -128,7 +117,6 @@ const styles = StyleSheet.create({
         color: adBlue,
         borderColor: adBlue,
         fontSize: 20,
-        // marginTop: 30,
     },
     qSlide: {
         borderWidth: 1,
@@ -156,13 +144,6 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
     },
-    qNumber: {
-        fontSize: 18,
-        color: 'gray',
-        textAlign: 'center',
-        marginTop: 5,
-        marginBottom: 5,
-    }
 });
 
 export default Card;

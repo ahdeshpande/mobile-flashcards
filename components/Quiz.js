@@ -3,7 +3,6 @@ import {
     View,
     Text,
     Dimensions,
-    Platform,
     StyleSheet,
     TouchableOpacity
 } from 'react-native';
@@ -12,8 +11,7 @@ import Carousel from "react-native-snap-carousel";
 import {adBlue, white} from "../utils/colors";
 import Card from "./Card";
 
-const IS_IOS = Platform.OS === 'ios';
-const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
+const {width: viewportWidth, } = Dimensions.get('window');
 
 function wp(percentage) {
     const value = (percentage * viewportWidth) / 100;
@@ -151,19 +149,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
     },
-    innerContainer: {
-        alignItems: 'center',
-    },
-    header: {
-        fontSize: 48,
-    },
-    counter: {
-        fontSize: 24,
-        color: 'gray',
-    },
-    aButtons: {
-        justifyContent: 'space-evenly',
-    },
     primaryButton: {
         alignSelf: 'center',
         textAlign: 'center',
@@ -174,33 +159,6 @@ const styles = StyleSheet.create({
         color: white,
         fontSize: 20,
         marginTop: 30,
-    },
-    secondaryButton: {
-        alignSelf: 'center',
-        textAlign: 'center',
-        padding: 10,
-        width: 120,
-        borderRadius: 5,
-        backgroundColor: white,
-        color: adBlue,
-        borderColor: adBlue,
-        borderWidth: 2,
-        fontSize: 20,
-        marginTop: 30,
-    },
-    qSlide: {
-        borderWidth: 1,
-        borderColor: adBlue,
-        borderRadius: 10,
-        padding: 30,
-        marginTop: 25,
-        marginBottom: 5,
-    },
-    aSlide: {
-        borderWidth: 1,
-        borderColor: adBlue,
-        borderRadius: 10,
-        padding: 30,
     },
     question: {
         fontSize: 20,
