@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 20,
         width: 150,
-        borderRadius: 5,
         backgroundColor: white,
         color: adBlue,
         borderColor: adBlue,

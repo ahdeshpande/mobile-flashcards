@@ -9,6 +9,7 @@ class Card extends Component {
 
         this.state = {
             answered: props.answered,
+            showAnswer: false,
         }
     }
 
@@ -22,16 +23,22 @@ class Card extends Component {
 
                     <Text style={styles.question}>{item.question}</Text>
 
-                    <TouchableOpacity onPress={() => {
+                    {!this.state.showAnswer
+                    && <TouchableOpacity onPress={() => {
+                        this.setState(() => ({
+                            showAnswer: true,
+                        }));
                     }}>
-                        <Text style={styles.primaryButton}>
+                        <Text style={styles.primaryButtonQ}>
                             Show Answer
                         </Text>
                     </TouchableOpacity>
+                    }
 
                 </View>
 
-                <View style={styles.aSlide}>
+                {this.state.showAnswer
+                && <View style={styles.aSlide}>
                     <Text style={styles.answer}>{item.answer}</Text>
 
                     {!this.state.answered && <View style={styles.aButtons}>
@@ -58,8 +65,8 @@ class Card extends Component {
                         </TouchableOpacity>
                     </View>
                     }
-
                 </View>
+                }
             </View>
         );
     }
@@ -83,7 +90,20 @@ const styles = StyleSheet.create({
         color: 'gray',
     },
     aButtons: {
+        flexDirection: 'row',
         justifyContent: 'space-evenly',
+        marginTop: 15,
+    },
+    primaryButtonQ: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        padding: 10,
+        width: 200,
+        borderRadius: 5,
+        backgroundColor: adBlue,
+        color: white,
+        fontSize: 20,
+        marginTop: 30,
     },
     primaryButton: {
         alignSelf: 'center',
@@ -92,8 +112,10 @@ const styles = StyleSheet.create({
         width: 120,
         borderRadius: 5,
         backgroundColor: adBlue,
+        borderColor: adBlue,
         color: white,
         fontSize: 20,
+        height: 50,
         // marginTop: 30,
     },
     secondaryButton: {
@@ -101,11 +123,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 10,
         width: 120,
-        borderRadius: 5,
         backgroundColor: white,
+        borderWidth: 2,
         color: adBlue,
         borderColor: adBlue,
-        borderWidth: 2,
         fontSize: 20,
         // marginTop: 30,
     },
@@ -122,6 +143,7 @@ const styles = StyleSheet.create({
         borderColor: adBlue,
         borderRadius: 10,
         padding: 30,
+        backgroundColor: '#f6f6f6',
     },
     question: {
         fontSize: 20,
