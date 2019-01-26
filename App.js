@@ -20,6 +20,7 @@ import AddDeck from "./components/AddDeck";
 import AddCard from "./components/AddCard";
 import Quiz from "./components/Quiz";
 import Score from "./components/Score";
+import logger from "./middleware/logger";
 
 const Home = createBottomTabNavigator({
     DeckList: {
@@ -123,7 +124,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <Provider store={createStore(reducer, applyMiddleware(thunk))}>
+            <Provider
+                store={createStore(reducer, applyMiddleware(thunk, ))}>
                 <View style={styles.container}>
                     <FCStatusBar backgroundColor={adBlue}
                                  barStyle={'light-content'}/>
