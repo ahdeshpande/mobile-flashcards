@@ -1,4 +1,4 @@
-import {ADD_DECK, RECEIVE_DECKS} from "../actions";
+import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from "../actions";
 
 function decks(state = {}, action) {
     switch (action.type) {
@@ -12,6 +12,7 @@ function decks(state = {}, action) {
                 ...state,
                 ...action.deck,
             };
+        case ADD_CARD:
         default:
             return state;
     }

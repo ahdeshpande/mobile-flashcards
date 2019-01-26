@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, FlatList, StyleSheet, RefreshControl} from 'react-native';
+import {View, FlatList, StyleSheet, RefreshControl, Text} from 'react-native';
 import {white} from "../utils/colors";
 import Deck from "./Deck";
 import {connect} from "react-redux";
@@ -43,17 +43,23 @@ class DeckList extends Component {
 
         return (
             <View style={styles.container}>
-                {decks && <FlatList
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.state.refreshing}
-                            onRefresh={this._onRefresh}
-                        />
-                    }
-                    data={decks}
-                    renderItem={this.renderItem}
-                    keyExtractor={(deck) => deck.id}
-                />}
+                {decks && decks.length > 0
+                    ? <FlatList
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={this.state.refreshing}
+                                onRefresh={this._onRefresh}
+                            />
+                        }
+                        data={decks}
+                        renderItem={this.renderItem}
+                        keyExtractor={(deck) => deck.id}
+                    />
+                    :
+                    <Text style={styles.message}>
+                        No decks found.
+                    </Text>
+                }
             </View>
         )
     }
@@ -65,6 +71,10 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         backgroundColor: white,
+    },
+    message: {
+        fontSize: 24,
+        color: 'gray',
     },
 });
 
