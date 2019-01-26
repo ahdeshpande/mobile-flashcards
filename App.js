@@ -103,11 +103,7 @@ const MainNavigator = createStackNavigator({
     Score: {
         screen: Score,
         navigationOptions: {
-            headerTintColor: white,
-            headerStyle: {
-                backgroundColor: adBlue,
-            },
-            headerForceInset: {top: 'never', bottom: 'never'},
+            header: null,
         }
     },
 });
