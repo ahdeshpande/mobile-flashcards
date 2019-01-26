@@ -37,6 +37,24 @@ class Score extends Component {
                 </View>
 
                 <View style={styles.innerContainer}>
+
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate(
+                            'DeckDetail', {
+                                deckId: deck.deckId
+                            }
+                        );
+                        navigation.navigate(
+                            'Quiz', {
+                                deckId: deck.deckId
+                            }
+                        );
+                    }}>
+                        <Text style={styles.secondaryButton}>
+                            Restart Quiz
+                        </Text>
+                    </TouchableOpacity>
+
                     <TouchableOpacity onPress={() => {
                         navigation.navigate(
                             'DeckDetail', {
@@ -86,6 +104,16 @@ const styles = StyleSheet.create({
     counter: {
         fontSize: 24,
         color: 'gray',
+    },
+    primaryButton: {
+        textAlign: 'center',
+        padding: 20,
+        width: 150,
+        borderRadius: 5,
+        backgroundColor: adBlue,
+        color: white,
+        fontSize: 20,
+        margin: 10,
     },
     secondaryButton: {
         textAlign: 'center',
