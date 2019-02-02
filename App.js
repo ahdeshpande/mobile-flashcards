@@ -19,18 +19,25 @@ import AddCard from "./components/AddCard";
 import Quiz from "./components/Quiz";
 import Score from "./components/Score";
 import logger from "./middleware/logger";
+import { Ionicons } from '@expo/vector-icons';
 
 const Home = createBottomTabNavigator({
     DeckList: {
         screen: DeckList,
         navigationOptions: {
             tabBarLabel: 'Home',
+            tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-home" size={30} color={tintColor} />
+            )
         }
     },
     AddDeck: {
         screen: AddDeck,
         navigationOptions: {
             tabBarLabel: 'Add Deck',
+            tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-add" size={30} color={tintColor} />
+            )
         }
     },
 }, {
