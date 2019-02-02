@@ -14,8 +14,6 @@ import {adBlue, white} from "./utils/colors";
 import {Constants} from "expo";
 import DeckDetail from "./components/DeckDetail";
 import DeckList from "./components/DeckList";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AddDeck from "./components/AddDeck";
 import AddCard from "./components/AddCard";
 import Quiz from "./components/Quiz";
@@ -27,18 +25,12 @@ const Home = createBottomTabNavigator({
         screen: DeckList,
         navigationOptions: {
             tabBarLabel: 'Home',
-            tabBarIcon: (({tintColor}) => <Ionicons name={'ios-home'}
-                                                    size={30}
-                                                    color={tintColor}/>),
         }
     },
     AddDeck: {
         screen: AddDeck,
         navigationOptions: {
             tabBarLabel: 'Add Deck',
-            tabBarIcon: (({tintColor}) => <FontAwesome name={'plus-square'}
-                                                       size={30}
-                                                       color={tintColor}/>),
         }
     },
 }, {
@@ -125,7 +117,7 @@ class App extends React.Component {
     render() {
         return (
             <Provider
-                store={createStore(reducer, applyMiddleware(thunk, ))}>
+                store={createStore(reducer, applyMiddleware(thunk, logger))}>
                 <View style={styles.container}>
                     <FCStatusBar backgroundColor={adBlue}
                                  barStyle={'light-content'}/>
