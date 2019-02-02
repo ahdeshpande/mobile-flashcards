@@ -13,6 +13,9 @@ function decks(state = {}, action) {
                 ...action.deck,
             };
         case ADD_CARD:
+            return {
+                ...state
+            };
         default:
             return state;
     }
